@@ -1,14 +1,22 @@
 
-typedef struct {
+typedef struct avl_tree avl_tree;
+struct avl_tree {
 	int value;
-	avl_tree left;
-	avl_tree right
-} avl_tree;
+	avl_tree* left;
+	avl_tree* right;
+	int height;
+};
 
-void new_avl_tree();
+void print_tree(avl_tree* root);
 
-void new_avl_tree(int x);
+avl_tree* avl_tree_int_new_empty();
 
-void insert_int(avl_tree* root, int x);
+avl_tree* avl_tree_int_new(int x);
 
-bool remove_int(avl_trees* root, int x);
+bool avl_tree_int_contains(avl_tree* root, int x);
+
+avl_tree* avl_tree_int_get(avl_tree* root, int x);
+
+avl_tree* avl_tree_int_insert(avl_tree* root, int x);
+
+bool avl_tree_int_remove(avl_tree* root, int x);
